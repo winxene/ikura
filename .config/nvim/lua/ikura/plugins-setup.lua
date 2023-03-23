@@ -1,4 +1,3 @@
-
 -- auto install packer if not installed
 local ensure_packer = function()
   local fn = vim.fn
@@ -35,6 +34,10 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+  
+  -- theme
+  use("loctvl842/monokai-pro.nvim")
+
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
