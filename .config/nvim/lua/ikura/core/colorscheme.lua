@@ -1,7 +1,7 @@
 -- in case it isn't installed
 require("monokai-pro").setup({
   transparent_background = true,
-  terminal_colors = true,
+  terminal_colors = false,
   devicons = true, -- highlight the icons of `nvim-web-devicons`
   styles = {
     comment = { italic = true },
@@ -16,7 +16,7 @@ require("monokai-pro").setup({
   filter = "ristretto", -- classic | octagon | pro | machine | ristretto | spectrum
   -- Enable this will disable filter option
   day_night = {
-    enable = false, -- turn off by default
+    enable = true, -- turn off by default
     day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
     night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
   },
