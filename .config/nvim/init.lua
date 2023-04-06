@@ -28,9 +28,9 @@ if vim.g.vscode then
 	require("ikura.plugins.lsp.lspsaga")
 	require("ikura.plugins.lsp.lspconfig")
 	require("ikura.plugins.lsp.null-ls")
-	require("josean.plugins.autopairs")
-	require("josean.plugins.treesitter")
-	require("josean.plugins.gitsigns")
+	require("ikura.plugins.autopairs")
+	require("ikura.plugins.treesitter")
+	require("ikura.plugins.gitsigns")
 else
 	-- ordinary Neovim
 end
