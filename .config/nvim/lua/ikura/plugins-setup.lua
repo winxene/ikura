@@ -35,6 +35,10 @@ return packer.startup(function(use)
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
+	-- Flutter Development
+	use("dart-lang/dart-vim-plugin")
+	use("thosakwe/vim-flutter")
+
 	-- theme
 	use("loctvl842/monokai-pro.nvim")
 
