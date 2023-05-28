@@ -23,10 +23,11 @@ set -g theme_display_virtualenv yes
 # Enable syntax highlighting
 set -g fish_color_autosuggestion brblack
 set -g fish_color_cancel -r
-set -g fish_color_command brblue
+set -g fish_color_command brwhite --bold
 set -g fish_color_comment brgreen
-set -g fish_color_cwd brblack
+set -g fish_color_cwd brcyan
 set -g fish_color_cwd_root brblack
+set -g fish_color_directory brcyan
 set -g fish_color_end brblack
 set -g fish_color_error -r
 set -g fish_color_escape brcyan
