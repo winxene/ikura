@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -163,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/monokai-pro.nvim",
     url = "https://github.com/loctvl842/monokai-pro.nvim"
+  },
+  neotest = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
   },
   ["null-ls.nvim"] = {
     loaded = true,

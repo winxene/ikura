@@ -39,6 +39,16 @@ return packer.startup(function(use)
 	use("dart-lang/dart-vim-plugin")
 	use("thosakwe/vim-flutter")
 
+	-- Tester
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+	})
+
 	-- Markdown Preview
 	use({ "iamcco/markdown-preview.nvim" })
 
