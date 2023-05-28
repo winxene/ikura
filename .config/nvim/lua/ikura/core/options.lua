@@ -25,7 +25,7 @@ opt.backspace = "indent,eol,start"
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
-opt.path:append { "**" }
+opt.path:append({ "**" })
 opt.wildignore:append(
 	"*/tmp/*,*.so,*.swp,*.zip",
 	"*/node_modules/*",
@@ -35,6 +35,8 @@ opt.wildignore:append(
 	"*/.idea/*",
 	"*/"
 )
+opt.path:remove("/usr/include")
+opt.wildignorecase = true
 
 -- cursor line
 opt.cursorline = true

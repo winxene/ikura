@@ -39,6 +39,9 @@ return packer.startup(function(use)
 	use("dart-lang/dart-vim-plugin")
 	use("thosakwe/vim-flutter")
 
+	-- Markdown Preview
+	use({ "iamcco/markdown-preview.nvim" })
+
 	-- theme
 	use("loctvl842/monokai-pro.nvim")
 

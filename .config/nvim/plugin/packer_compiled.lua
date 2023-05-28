@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["dart-vim-plugin"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -133,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -225,6 +235,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister",
     url = "https://github.com/inkarkat/vim-ReplaceWithRegister"
+  },
+  ["vim-flutter"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/vim-flutter",
+    url = "https://github.com/thosakwe/vim-flutter"
   },
   ["vim-surround"] = {
     loaded = true,
