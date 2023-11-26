@@ -49,6 +49,7 @@ alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
+alias docker="/Applications/Docker.app/Contents/Resources/bin/docker"
 command -qv nvim && alias vim nvim
 
 #Bindings
