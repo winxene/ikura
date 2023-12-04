@@ -203,6 +203,18 @@ return {
     end,
   },
 
+  {
+    "christoomey/vim-tmux-navigator",
+  },
+
+  {
+    "dart-lang/dart-vim-plugin",
+  },
+
+  {
+    "thosakwe/vim-flutter",
+  },
+
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
