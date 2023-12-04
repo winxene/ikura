@@ -222,6 +222,56 @@ return {
     },
   },
 
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        -- JS & TS Family (web stuffs)
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "emmet_ls",
+        "graphql",
+        "jsonls",
+
+        -- Lua
+        "lua_ls",
+
+        -- Python
+        "jedi_language_server",
+        "pyright",
+
+        -- Rust
+        "rust_analyzer",
+
+        -- C Family
+        "clangd",
+
+        -- Latex
+        "texlab",
+
+        -- PHP
+        "intelephense",
+
+        -- Arduino
+        "arduino_language_server",
+
+        -- Java
+        "jdtls",
+
+        -- Others
+        "bashls",
+
+        -- Markdown
+        "marksman",
+
+        -- Docker
+        "dockerls",
+      },
+    },
+  },
+
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
