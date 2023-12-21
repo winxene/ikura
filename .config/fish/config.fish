@@ -80,6 +80,21 @@ set -gx PATH $GOPATH/bin $PATH
 # Flutter
 set -gx PATH $PATH /Library/flutter/bin
 
+# Rust
+set -gx PATH $PATH $HOME/.cargo/bin
+
+# Python
+set -gx PATH $PATH $HOME/Library/Python/3.9/bin
+
+# Ruby
+set -gx PATH $PATH $HOME/.gem/ruby/3.0.0/bin
+
+# Java
+set -gx PATH $PATH /Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home/bin
+
+# Firebase cli
+set -gx PATH $PATH $HOME/.pub-cache/bin
+
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   status --is-command-substitution; and return
