@@ -83,6 +83,12 @@ set -gx PATH $PATH /Library/flutter/bin
 # Rust
 set -gx PATH $PATH $HOME/.cargo/bin
 
+# Dart
+set -gx PATH $PATH /Library/flutter/bin/cache/dart-sdk/bin
+
+# Docker
+set -gx PATH $PATH /Applications/Docker.app/Contents/Resources/bin
+
 # Python
 set -gx PATH $PATH $HOME/Library/Python/3.9/bin
 
