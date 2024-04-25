@@ -14,23 +14,6 @@ require("ikura.plugins.lsp.null-ls")
 require("ikura.plugins.autopairs")
 require("ikura.plugins.treesitter")
 require("ikura.plugins.gitsigns")
-
-if vim.g.vscode then
-	-- VSCode extension
-	require("ikura.core.keymaps")
-	require("ikura.core.colorscheme")
-	require("ikura.plugins.comment")
-	require("ikura.plugins.nvim-tree")
-	require("ikura.plugins.nvim-cmp")
-	require("ikura.plugins.lualine")
-	require("ikura.plugins.telescope")
-	require("ikura.plugins.lsp.mason")
-	require("ikura.plugins.lsp.lspsaga")
-	require("ikura.plugins.lsp.lspconfig")
-	require("ikura.plugins.lsp.null-ls")
-	require("ikura.plugins.autopairs")
-	require("ikura.plugins.treesitter")
-	require("ikura.plugins.gitsigns")
-else
-	-- ordinary Neovim
-end
+require("CopilotChat").setup({
+	debug = true,
+})
