@@ -231,6 +231,11 @@ _G.packer_plugins = {
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["presence.nvim"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/presence.nvim",
+    url = "https://github.com/andweeb/presence.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
