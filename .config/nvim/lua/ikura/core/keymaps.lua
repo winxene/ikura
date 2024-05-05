@@ -4,7 +4,6 @@ local keymap = vim.keymap -- for conciseness
 -- general keymaps
 -- will add more soon
 
-
 -----------------
 -- the pattern:
 -----------------
@@ -15,7 +14,8 @@ keymap.set("n for normal mode", "shortcuts you want to create", "the running com
 - <CR> == return button/ enter button
 - <C-something> == control + something
 
-]]--
+]]
+--
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -34,6 +34,11 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 ---------------
 -- tree management
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- copilot chat
+keymap.set("n", "<leader>cc", ":CopilotChat<CR>") -- connect to copilot chat
+keymap.set("n", "<leader>cd", ":CopilotChatDisconnect<CR>") -- disconnect from copilot chat
+
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
@@ -49,4 +54,3 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
