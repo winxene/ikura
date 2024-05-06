@@ -16,7 +16,8 @@ opt.cmdheight = 1
 opt.title = true
 
 -- shell
-opt.shell = "/bin/zsh"
+-- opt.shell = "/bin/zsh"
+opt.shell = "/opt/homebrew/bin/fish"
 
 -- line wrapping
 opt.wrap = false
