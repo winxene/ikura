@@ -14,6 +14,8 @@ require("ikura.plugins.lsp.null-ls")
 require("ikura.plugins.autopairs")
 require("ikura.plugins.treesitter")
 require("ikura.plugins.gitsigns")
+require("ikura.plugins.trouble")
+require("ikura.plugins.presence")
 require("CopilotChat").setup({
 	debug = true,
 })
