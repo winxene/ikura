@@ -111,6 +111,13 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   end
 end
 
+function nvm
+  bass source (brew --prefix nvm)/nvm.sh --no-use ';' nvm $argv
+end
+
+set -gx NVM_DIR (brew --prefix nvm)/nvm
+nvm use default --silent
+
 switch (uname)
   case Darwin
     source (dirname (status --current-filename))/config-osx.fish
@@ -129,3 +136,10 @@ if status --is-interactive
     # Commands to run in interactive sessions can go here
     starship init fish | source 
 end
+
+# pnpm
+set -gx PNPM_HOME "/Users/ikura/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
