@@ -19,7 +19,12 @@ style = "bold #ff5555"
 
 [hostname]
 style = "bold #bd93f9"
+ssh_only = false
+detect_env_vars = ['!TMUX', 'SSH_CONNECTION']
+disabled = false
 
 [username]
-format = "[$user]($style) on "
+format = "[$user]($style) | "
 style_user = "bold #8be9fd"
+style_root = "bold #ff5555"
+show_always = true
