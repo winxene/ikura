@@ -199,6 +199,16 @@ _G.packer_plugins = {
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-platformio.lua"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/nvim-platformio.lua",
+    url = "https://github.com/anurag3301/nvim-platformio.lua"
+  },
+  ["nvim-toggleterm.lua"] = {
+    loaded = true,
+    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua",
+    url = "https://github.com/akinsho/nvim-toggleterm.lua"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -250,11 +260,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
-  },
-  ["typescript.nvim"] = {
-    loaded = true,
-    path = "/Users/ikura/.local/share/nvim/site/pack/packer/start/typescript.nvim",
-    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
   ["vim-ReplaceWithRegister"] = {
     loaded = true,
