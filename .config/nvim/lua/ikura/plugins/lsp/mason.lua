@@ -24,7 +24,7 @@ mason_lspconfig.setup({
 	ensure_installed = {
 
 		-- JS & TS Family (web stuffs)
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"tailwindcss",

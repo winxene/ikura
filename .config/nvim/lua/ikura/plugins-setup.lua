@@ -45,6 +45,16 @@ return packer.startup(function(use)
 	use("dart-lang/dart-vim-plugin")
 	use("thosakwe/vim-flutter")
 
+	-- platformIO
+	use({
+		"anurag3301/nvim-platformio.lua",
+		requires = {
+			{ "akinsho/nvim-toggleterm.lua" },
+			{ "nvim-telescope/telescope.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+	})
+
 	-- Tester
 	use({
 		"nvim-neotest/neotest",
@@ -110,7 +120,6 @@ return packer.startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	}) -- enhanced lsp uis
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
