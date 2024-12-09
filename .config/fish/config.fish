@@ -20,30 +20,67 @@ set -g theme_display_git_dirty yes
 set -g theme_display_nvm yes
 set -g theme_display_virtualenv yes
 
-# Enable syntax highlighting
-set -g fish_color_autosuggestion brblack
-set -g fish_color_cancel -r
-set -g fish_color_command brwhite --bold
-set -g fish_color_comment brgreen
-set -g fish_color_cwd brcyan
-set -g fish_color_cwd_root brblack
-set -g fish_color_directory brcyan
-set -g fish_color_end brblack
-set -g fish_color_error -r
-set -g fish_color_escape brcyan
-set -g fish_color_history_current --background=brblack --bold
-set -g fish_color_host brred
-set -g fish_color_match --background=yellow --bold
-set -g fish_color_normal brblack
-set -g fish_color_operator brblack
-set -g fish_color_param brblack
-set -g fish_color_quote brmagenta
-set -g fish_color_redirection brblack
-set -g fish_color_search_match --background=yellow --bold
-set -g fish_color_selection --background=brblack --bold
-set -g fish_color_status -r
-set -g fish_color_user brred
+set theme "kanagawa" 
 
+switch $theme
+    case "default"
+        # Enable syntax highlighting
+        set -g fish_color_autosuggestion brblack
+        set -g fish_color_cancel -r
+        set -g fish_color_command brwhite --bold
+        set -g fish_color_comment brgreen
+        set -g fish_color_cwd brcyan
+        set -g fish_color_cwd_root brblack
+        set -g fish_color_directory brcyan
+        set -g fish_color_end brblack
+        set -g fish_color_error -r
+        set -g fish_color_escape brcyan
+        set -g fish_color_history_current --background=brblack --bold
+        set -g fish_color_host brred
+        set -g fish_color_match --background=yellow --bold
+        set -g fish_color_normal brblack
+        set -g fish_color_operator brblack
+        set -g fish_color_param brblack
+        set -g fish_color_quote brmagenta
+        set -g fish_color_redirection brblack
+        set -g fish_color_search_match --background=yellow --bold
+        set -g fish_color_selection --background=brblack --bold
+        set -g fish_color_status -r
+        set -g fish_color_user brred
+    case "kanagawa"
+        #Color
+        set -l foreground DCD7BA normal
+        set -l selection 2D4F67 brcyan
+        set -l comment 727169 brblack
+        set -l red C34043 red
+        set -l orange FF9E64 brred
+        set -l yellow C0A36E yellow
+        set -l green 76946A green
+        set -l purple 957FB8 magenta
+        set -l cyan 7AA89F cyan
+        set -l pink D27E99 brmagenta
+
+        # Enable syntax highlighting
+        set -g fish_color_normal $foreground
+        set -g fish_color_command $cyan
+        set -g fish_color_keyword $pink
+        set -g fish_color_quote $yellow
+        set -g fish_color_redirection $foreground
+        set -g fish_color_end $orange
+        set -g fish_color_error $red
+        set -g fish_color_param $purple
+        set -g fish_color_comment $comment
+        set -g fish_color_selection --background=$selection
+        set -g fish_color_search_match --background=$selection
+        set -g fish_color_operator $green
+        set -g fish_color_escape $pink
+        set -g fish_color_autosuggestion $comment
+        #Completion Pager Colors
+        set -g fish_pager_color_progress $comment
+        set -g fish_pager_color_prefix $cyan
+        set -g fish_pager_color_completion $foreground
+        set -g fish_pager_color_description $comment
+end
 # aliases
 alias ls "ls -p -G"
 alias la "ls -A"
