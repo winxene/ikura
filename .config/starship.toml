@@ -1,30 +1,64 @@
+## Default
+# [aws]
+# style = "bold #ffb86c"
+#
+# [character]
+# error_symbol = "[λ](bold #ff5555)"
+# success_symbol = "[λ](bold #50fa7b)"
+#
+# [cmd_duration]
+# style = "bold #f1fa8c"
+#
+# [directory]
+# style = "bold #50fa7b"
+#
+# [git_branch]
+# style = "bold #ff79c6"
+#
+# [git_status]
+# style = "bold #ff5555"
+#
+# [hostname]
+# style = "bold #bd93f9"
+# ssh_only = false
+# detect_env_vars = ['!TMUX', 'SSH_CONNECTION']
+# disabled = false
+#
+# [username]
+# format = "[$user]($style) | "
+# style_user = "bold #8be9fd"
+# style_root = "bold #ff5555"
+# show_always = true
+
+## kanagawa
 [aws]
-style = "bold #ffb86c"
+style = "bold #DCD7BA" # normal
 
 [character]
-error_symbol = "[λ](bold #ff5555)"
-success_symbol = "[λ](bold #50fa7b)"
+error_symbol = "[λ](bold #C34043)" # red
+success_symbol = "[λ](bold #76946A)" # green
 
 [cmd_duration]
-style = "bold #f1fa8c"
+style = "bold #C0A36E" # yellow
 
 [directory]
-style = "bold #50fa7b"
+style = "bold #76946A" # green
 
 [git_branch]
-style = "bold #ff79c6"
+style = "bold #957FB8" # magenta
 
 [git_status]
-style = "bold #ff5555"
+style = "bold #C34043" # red
 
 [hostname]
-style = "bold #bd93f9"
+style = "bold #D27E99" # brmagenta
 ssh_only = false
 detect_env_vars = ['!TMUX', 'SSH_CONNECTION']
 disabled = false
 
 [username]
 format = "[$user]($style) | "
-style_user = "bold #8be9fd"
-style_root = "bold #ff5555"
+style_user = "bold #7AA89F" # cyan
+style_root = "bold #C34043" # red
 show_always = true
+
