@@ -70,6 +70,7 @@ return packer.startup(function(use)
 
 	-- theme
 	use("loctvl842/monokai-pro.nvim")
+	use("rebelot/kanagawa.nvim")
 
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
