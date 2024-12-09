@@ -46,12 +46,13 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- trouble
-keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>") -- toggle trouble
-keymap.set("n", "<leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>") -- toggle workspace diagnostics
-keymap.set("n", "<leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<cr>") -- toggle document diagnostics
-keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>") -- toggle quickfix list
-keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>") -- toggle location list
-keymap.set("n", "<leader>gR", "<cmd>TroubleToggle lsp_references<cr>") -- toggle lsp references
+keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>") -- toggle trouble
+keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<cr>") -- toggle trouble
+keymap.set("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics toggle<cr>") -- toggle workspace diagnostics
+keymap.set("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics toggle<cr>") -- toggle document diagnostics
+keymap.set("n", "<leader>xq", "<cmd>Trouble qflist toggle<cr>") -- toggle quickfix list
+keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>") -- toggle location list
+keymap.set("n", "<leader>gR", "<cmd>Trouble lsp_references toggle<cr>") -- toggle lsp references
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
