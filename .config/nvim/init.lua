@@ -18,4 +18,5 @@ require("ikura.plugins.trouble")
 require("ikura.plugins.presence")
 require("CopilotChat").setup({
 	debug = true,
+	true, -- Set to true to see the response from GitHub Copilot API. The log file will be in ~/.local/state/nvim/CopilotChat.nvim.log.
 })
