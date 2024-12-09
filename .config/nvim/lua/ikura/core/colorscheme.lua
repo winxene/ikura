@@ -1,50 +1,103 @@
 -- in case it isn't installed
-require("monokai-pro").setup({
-	transparent_background = true,
-	terminal_colors = false,
-	devicons = true, -- highlight the icons of `nvim-web-devicons`
-	styles = {
-		comment = { italic = true },
-		keyword = { italic = true }, -- any other keyword
-		type = { italic = true }, -- (preferred) int, long, char, etc
-		storageclass = { italic = true }, -- static, register, volatile, etc
-		structure = { italic = true }, -- struct, union, enum, etc
-		parameter = { italic = true }, -- parameter pass in function
-		annotation = { italic = true },
-		tag_attribute = { italic = true }, -- attribute of tag in reactjs
+
+-- in case it isn't installed
+-- Setup for kanagawa colorscheme
+
+require("kanagawa").setup({
+	compile = false,
+	undercurl = true,
+	commentStyle = { italic = true },
+	functionStyle = {},
+	keywordStyle = { italic = true },
+	statementStyle = { bold = true },
+	typeStyle = {},
+	transparent = true,
+	dimInactive = false,
+	terminalColors = true,
+	colors = {
+		palette = {},
+		theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
 	},
-	filter = "ristretto", -- classic | octagon | pro | machine | ristretto | spectrum
-	-- Enable this will disable filter option
-	day_night = {
-		enable = true, -- turn off by default
-		day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-		night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
-	},
-	inc_search = "background", -- underline | background
+	overrides = function(colors)
+		return {}
+	end,
+	theme = "wave",
+	-- background = {
+	-- 	dark = "wave",
+	-- 	light = "lotus",
+	-- },
 	background_clear = {
-		-- "float_win",
 		"toggleterm",
 		"telescope",
 		"which-key",
 		"renamer",
-	}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree"
+	},
+})
+
+-- Setup for monokai-pro colorscheme
+require("monokai-pro").setup({
+	transparent_background = true,
+	terminal_colors = false,
+	devicons = true,
+	styles = {
+		comment = { italic = true },
+		keyword = { italic = true },
+		type = { italic = true },
+		storageclass = { italic = true },
+		structure = { italic = true },
+		parameter = { italic = true },
+		annotation = { italic = true },
+		tag_attribute = { italic = true },
+	},
+	filter = "ristretto",
+	day_night = {
+		enable = true,
+		day_filter = "pro",
+		night_filter = "spectrum",
+	},
+	inc_search = "background",
+	background_clear = {
+		"toggleterm",
+		"telescope",
+		"which-key",
+		"renamer",
+	},
 	plugins = {
 		bufferline = {
 			underline_selected = false,
 			underline_visible = false,
 		},
 		indent_blankline = {
-			context_highlight = "default", -- default | pro
+			context_highlight = "default",
 			context_start_underline = false,
 		},
 	},
-	---@param c Colorscheme
 	override = function(c) end,
 })
 
-local status, _ = pcall(vim.cmd, "colorscheme monokai-pro")
+-- Function to toggle between colorschemes
+local current_colorscheme = "kanagawa"
 
+local function toggle_colorscheme()
+	if current_colorscheme == "monokai-pro" then
+		local status, _ = pcall(vim.cmd, "colorscheme kanagawa")
+		if status then
+			current_colorscheme = "kanagawa"
+		else
+			print("kanagawa not found!")
+		end
+	else
+		local status, _ = pcall(vim.cmd, "colorscheme monokai-pro")
+		if status then
+			current_colorscheme = "monokai-pro"
+		else
+			print("monokai-pro not found!")
+		end
+	end
+end
+
+-- Set initial colorscheme
+local status, _ = pcall(vim.cmd, "colorscheme " .. current_colorscheme)
 if not status then
-	print("monokai-pro not found!") -- print error if colorscheme not installed
-	return
+	print(current_colorscheme .. " not found!")
 end
