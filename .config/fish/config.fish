@@ -1,5 +1,6 @@
 set fish_greeting "https://stump-zydeco-616.notion.site/Fish-Chan-de117e5bda73414882aa237bd1236d28 for switching back to zsh"
 
+
 set -gx TERM xterm-256color
 
 # theme
@@ -88,6 +89,8 @@ alias ll "ls -l"
 alias lla "ll -A"
 command -qv nvim && alias vim nvim
 
+alias docker-compose "docker compose"
+
 #Bindings
 
 bind \cr accept-autosuggestion
@@ -126,6 +129,9 @@ set -gx PATH $PATH /Library/flutter/bin/cache/dart-sdk/bin
 # Docker
 set -gx PATH $PATH /Applications/Docker.app/Contents/Resources/bin
 
+# docker-compose
+set -gx PATH $PATH /usr/local/bin/docker-compose
+
 # Python
 set -gx PATH $PATH $HOME/Library/Python/3.9/bin
 
@@ -137,6 +143,9 @@ set -gx PATH $PATH /Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Hom
 
 # Firebase cli
 set -gx PATH $PATH $HOME/.pub-cache/bin
+
+# set path to ide script
+set -gx PATH $PATH $HOME/.config/ide/ide.sh
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
@@ -184,3 +193,19 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /opt/homebrew/anaconda3/bin/conda
+    eval /opt/homebrew/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
+        . "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/opt/homebrew/anaconda3/bin" $PATH
+    end
+end
+
+set _CONDA_ROOT "/opt/homebrew/anaconda3"
+# <<< conda initialize <<<
+
