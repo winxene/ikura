@@ -1,24 +1,26 @@
 #!/bin/bash
 
+current_folder=$(basename $PWD)
+session_name=${current_folder#.}
+
 if [ "$1" == "exit" ]; then
-  # Kill the tmux session named 'ide'
-  tmux kill-session -t ide
+  tmux kill-session -t "$session_name"
   exit 0
 fi
 
-# Start a new tmux session named 'ide'
-tmux new-session -d -s ide
+if tmux has-session -t "$session_name" 2>/dev/null; then
+  tmux attach-session -t "$session_name"
+  exit 0
+fi
 
-# Split the left pane horizontally
+tmux new-session -d -s "$session_name"
+
 tmux select-pane -t 0
 tmux split-window -h -p 30
 
-# Split the window vertically
 tmux split-window -v -p 60
 
-# Open Neovim in the left pane
 tmux select-pane -t 0
 tmux send-keys 'nvim' C-m
 
-# Attach to the tmux session
-tmux attach-session -t ide
+tmux attach-session -t "$session_name"
