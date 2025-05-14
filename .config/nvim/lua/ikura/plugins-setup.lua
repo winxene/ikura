@@ -215,6 +215,17 @@ lazy.setup({
 		end,
 	},
 
+  --Harpoon 2 (Simple buffer navigation)
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("ikura.plugins.harpoon")
+      require("ikura.plugins.telescope")
+    end,
+  },
+
 	-- Vim plugins
 	"inkarkat/vim-ReplaceWithRegister", -- Replace with register
 	"tpope/vim-surround", -- Surround text objects
