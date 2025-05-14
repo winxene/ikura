@@ -178,6 +178,14 @@ lazy.setup({
 		end,
 	},
 
+	-- Navigations
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+	},
+
 	-- Copilot
 	"github/copilot.vim",
 	{
@@ -196,16 +204,16 @@ lazy.setup({
 	"thosakwe/vim-flutter",
 
 	-- Markdown preview
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-    config = function()
-      require('render-markdown').setup()
-    end
-  },
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+		config = function()
+			require("render-markdown").setup()
+		end,
+	},
 
 	-- Vim plugins
 	"inkarkat/vim-ReplaceWithRegister", -- Replace with register
