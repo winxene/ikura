@@ -1,6 +1,4 @@
 -- in case it isn't installed
-
--- in case it isn't installed
 -- Setup for kanagawa colorscheme
 
 require("kanagawa").setup({
