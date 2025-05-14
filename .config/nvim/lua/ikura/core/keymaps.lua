@@ -60,5 +60,29 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
+-- flash
+keymap.set({ "n", "x", "o" }, "zk", function()
+	require("flash").jump()
+end, { desc = "Flash" })
+
+keymap.set({ "n", "x", "o" }, "Zk", function()
+	require("flash").treesitter()
+end, { desc = "Flash Treesitter" })
+
+keymap.set("o", "r", function()
+	require("flash").remote()
+end, { desc = "Remote Flash" })
+
+keymap.set({ "o", "x" }, "R", function()
+	require("flash").treesitter_search()
+end, { desc = "Treesitter Search" })
+
+keymap.set("c", "<c-s>", function()
+	require("flash").toggle()
+end, { desc = "Toggle Flash Search" })
+
+-- Toggle render markdown
+keymap.set("n", "<leader>md", ":RenderMarkdown toggle<CR>") -- toggle markdown preview
+
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
