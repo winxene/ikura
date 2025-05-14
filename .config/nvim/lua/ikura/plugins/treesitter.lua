@@ -6,9 +6,14 @@ end
 
 -- configure treesitter
 treesitter.setup({
+  dependencies = {
+    "windwp/nvim-ts-autotag", -- Auto close/rename HTML tags
+  },
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
+    disable = {},
+    additional_vim_regex_highlighting = false,
 	},
 	-- enable indentation
 	indent = { enable = true },
