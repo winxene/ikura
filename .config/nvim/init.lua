@@ -1,22 +1,4 @@
-require("ikura.plugins-setup")
 require("ikura.core.options")
 require("ikura.core.keymaps")
 require("ikura.core.colorscheme")
-require("ikura.plugins.comment")
-require("ikura.plugins.nvim-tree")
-require("ikura.plugins.nvim-cmp")
-require("ikura.plugins.lualine")
-require("ikura.plugins.telescope")
-require("ikura.plugins.lsp.mason")
-require("ikura.plugins.lsp.lspsaga")
-require("ikura.plugins.lsp.lspconfig")
-require("ikura.plugins.lsp.null-ls")
-require("ikura.plugins.autopairs")
-require("ikura.plugins.treesitter")
-require("ikura.plugins.gitsigns")
-require("ikura.plugins.trouble")
-require("ikura.plugins.presence")
-require("CopilotChat").setup({
-	debug = true,
-	true, -- Set to true to see the response from GitHub Copilot API. The log file will be in ~/.local/state/nvim/CopilotChat.nvim.log.
-})
+require("ikura.plugins-setup")
