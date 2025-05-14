@@ -84,5 +84,19 @@ end, { desc = "Toggle Flash Search" })
 -- Toggle render markdown
 keymap.set("n", "<leader>md", ":RenderMarkdown toggle<CR>") -- toggle markdown preview
 
+-- Harpoon (Buffer selector)
+keymap.set("n", "<leader>hh", ":HarpoonListToggle<CR>") -- toggle harpoon
+keymap.set("n", "<leader>ha", ":HarpoonListAdd<CR>") -- add current file to harpoon
+keymap.set("n", "<leader>hx", ":HarpoonListRemove<CR>") -- remove current file from harpoon
+keymap.set("n", "<leader>hp", ":HarpoonListPrev<CR>") -- go to previous file in harpoon
+keymap.set("n", "<leader>hn", ":HarpoonListNext<CR>") -- go to next file in harpoon
+
+-- Number keys for direct selection
+for i = 1, 9 do
+    keymap.set("n", "<leader>h" .. i, ":HarpoonSelect " .. i .. "<CR>", {
+        desc = "Go to file " .. i .. " in harpoon"
+    })
+end
+
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
