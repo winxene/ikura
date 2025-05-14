@@ -7,28 +7,33 @@ end
 -- recommended settings from nvim-tree documentation
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.nvim_tree_auto_resize = 1
 
--- change color for arrows in tree to light blue
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+local devicons_loaded, _ = pcall(require, "nvim-web-devicons")
+if not devicons_loaded then
+	print("Warning: nvim-web-devicons not loaded. Icons may not display correctly.")
+end
 
--- change color for nvim tree background to transparent
-vim.cmd([[ highlight NvimTreeNormal guibg=NONE ]])
--- make sure that the colour below is the same as your terminal background
-vim.cmd([[ highlight NvimTreeNormalNC guibg=NONE ]])
-
--- add adaptive size for nvim-tree
-
--- configure nvim-tree
 nvimtree.setup({
-	-- change folder arrow icons
 	renderer = {
 		highlight_modified = "all",
 		icons = {
+			show = {
+				file = true,
+				folder = true,
+        folder_arrow = false,
+				git = true,
+			},
 			glyphs = {
-				folder = {
-					arrow_closed = ">", -- arrow when folder is closed
-					arrow_open = "v", -- arrow when folder is open
+				default = "", -- Default file icon
+				symlink = "",
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
 				},
 			},
 		},
@@ -43,30 +48,22 @@ nvimtree.setup({
 			},
 		},
 	},
-	-- 	git = {
-	-- 		ignore = false,
-	-- 	},
+	git = {
+		enable = true,
+		ignore = false,
+	},
 })
 
 -- open nvim-tree on setup
-
 local function open_nvim_tree(data)
-	-- buffer is a [No Name]
 	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-	-- buffer is a directory
 	local directory = vim.fn.isdirectory(data.file) == 1
-
 	if not no_name and not directory then
 		return
 	end
-
-	-- change to the directory
 	if directory then
 		vim.cmd.cd(data.file)
 	end
-
-	-- open the tree
 	require("nvim-tree.api").tree.open()
 end
 
