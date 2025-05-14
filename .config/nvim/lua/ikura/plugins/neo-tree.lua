@@ -1,5 +1,0 @@
--- -- import neo-tree plugin safely
--- local setup, neoTree = pcall(require, "neo-tree")
--- if not setup then
--- 	return
--- end
