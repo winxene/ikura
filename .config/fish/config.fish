@@ -147,6 +147,9 @@ set -gx PATH $PATH $HOME/.pub-cache/bin
 # set path to ide script
 set -gx PATH $PATH $HOME/.config/ide/ide.sh
 
+# set adb path
+set -gx PATH $PATH /Users/ikura/Library/Android/sdk/platform-tools
+
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   status --is-command-substitution; and return
