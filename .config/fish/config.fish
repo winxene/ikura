@@ -110,6 +110,11 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 
+# tmux
+function fish_postexec
+    ~/.config/tmux/scripts/tmux-rename-session.sh
+end
+
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
 
