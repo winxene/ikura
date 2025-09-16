@@ -55,3 +55,4 @@ window-colorspace = display-p3
 macos-titlebar-proxy-icon = hidden
 title = " "
 window-decoration = client
+command = /opt/homebrew/bin/fish -lc 'tmux new-session -A -s (basename $PWD)'
