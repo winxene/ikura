@@ -35,6 +35,12 @@ mason_lspconfig.setup({
 		-- Lua
 		"lua_ls",
 
+    -- Dotnet
+    "omnisharp",
+
+    -- Go
+    "gopls",
+
 		-- Python
 		"jedi_language_server",
 		"pyright",

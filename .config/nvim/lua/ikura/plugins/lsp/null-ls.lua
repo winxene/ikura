@@ -21,6 +21,9 @@ null_ls.setup({
 		-- golang formatter
 		formatting.gofumpt,
 
+    -- c# formatter
+    formatting.csharpier,
+
 		-- python formatter
 		formatting.black,
 		formatting.isort,
@@ -30,7 +33,7 @@ null_ls.setup({
 		formatting.rustfmt,
 
 		formatting.stylua, -- lua formatter
-    require("none-ls.diagnostics.eslint_d"),        
+    require("none-ls.diagnostics.eslint_d"),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
