@@ -1,0 +1,53 @@
+require("cord").setup({
+	editor = {
+		client = "neovim",
+		tooltip = "Neovim",
+		icon = nil,
+	},
+	idle = {
+		enabled = true,
+		timeout = 300000,
+		show_status = true,
+		ignore_focus = true,
+		unidle_on_focus = true,
+		smart_idle = true,
+		details = "Idling",
+		state = nil,
+		tooltip = "💤",
+		icon = nil,
+	},
+	text = {
+		default = "Cooking something good",
+		workspace = "",
+		editing = "",
+		file_browser = "",
+		plugin_manager = "",
+		lsp = false,
+		docs = false,
+		vcs = false,
+		notes = false,
+		debug = false,
+		test = false,
+		diagnostics = false,
+		games = false,
+		terminal = false,
+		dashboard = false,
+	},
+	timestamp = {
+		enabled = true,
+		reset_on_idle = false,
+		reset_on_change = false,
+		shared = false,
+	},
+	buttons = {
+		{
+			label = "Configuration Guide",
+			url = "https://github.com/vyfor/cord.nvim/wiki/Configuration",
+		},
+	},
+	display = {
+		theme = "default",
+		flavor = "dark",
+		view = "full",
+	},
+})

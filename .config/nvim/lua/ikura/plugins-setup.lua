@@ -170,14 +170,6 @@ lazy.setup({
 	-- PlatformIO support
 	"anurag3301/nvim-platformio.lua",
 
-	-- Discord presence
-	{
-		"andweeb/presence.nvim",
-		config = function()
-			require("ikura.plugins.presence")
-		end,
-	},
-
 	-- Navigations
 	{
 		"folke/flash.nvim",
@@ -185,7 +177,15 @@ lazy.setup({
 		---@type Flash.Config
 		opts = {},
 	},
-
+	-- Discord presence (Cord) for Neovim
+	{
+		"vyfor/cord.nvim",
+		build = ":Cord update",
+		-- opts = {}
+		config = function()
+			require("ikura.plugins.cord")
+		end,
+	},
 	-- Copilot
 	"github/copilot.vim",
 	{
@@ -215,15 +215,15 @@ lazy.setup({
 		end,
 	},
 
-  --Harpoon 2 (Simple buffer navigation)
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("ikura.plugins.harpoon")
-    end,
-  },
+	--Harpoon 2 (Simple buffer navigation)
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("ikura.plugins.harpoon")
+		end,
+	},
 
 	-- Vim plugins
 	"inkarkat/vim-ReplaceWithRegister", -- Replace with register
