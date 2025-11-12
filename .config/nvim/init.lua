@@ -1,4 +1,5 @@
 require("ikura.core.options")
 require("ikura.core.keymaps")
 require("ikura.core.colorscheme")
+require("ikura.core.shortcuts")
 require("ikura.plugins-setup")
