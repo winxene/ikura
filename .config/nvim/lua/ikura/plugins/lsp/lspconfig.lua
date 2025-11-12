@@ -1,9 +1,3 @@
--- import lspconfig plugin safely
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-	return
-end
-
 -- import cmp-nvim-lsp plugin safely
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
@@ -51,40 +45,44 @@ for type, icon in pairs(signs) do
 end
 
 -- configure html server
-lspconfig["html"].setup({
+vim.lsp.config("html", {
+	cmd = { "html-languageserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configure typescript server with plugin
-lspconfig["ts_ls"].setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
+vim.lsp.config("ts_ls", {
+	cmd = { "typescript-language-server", "--stdio" },
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 -- configure css server
-lspconfig["cssls"].setup({
+vim.lsp.config("cssls", {
+	cmd = { "css-languageserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
+vim.lsp.config("tailwindcss", {
+	cmd = { "tailwindcss-language-server", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configure emmet language server
-lspconfig["emmet_ls"].setup({
+vim.lsp.config("emmet_ls", {
+	cmd = { "emmet-ls", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
+vim.lsp.config("lua_ls", {
+	cmd = { "lua-language-server" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -106,61 +104,71 @@ lspconfig["lua_ls"].setup({
 })
 
 --configuring golang server
-lspconfig["gopls"].setup({
+vim.lsp.config("gopls", {
+	cmd = { "gopls" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring json server
-lspconfig["jsonls"].setup({
+vim.lsp.config("jsonls", {
+	cmd = { "vscode-json-languageserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring yaml server
-lspconfig["yamlls"].setup({
+vim.lsp.config("yamlls", {
+	cmd = { "yaml-language-server", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring docker server
-lspconfig["dockerls"].setup({
+vim.lsp.config("dockerls", {
+	cmd = { "docker-langserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring bash server
-lspconfig["bashls"].setup({
+vim.lsp.config("bashls", {
+	cmd = { "bash-language-server", "start" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring cpp server
-lspconfig["clangd"].setup({
+vim.lsp.config("clangd", {
+	cmd = { "clangd" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring python server
-lspconfig["pyright"].setup({
+vim.lsp.config("pyright", {
+	cmd = { "pyright-langserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring rust server
-lspconfig["rust_analyzer"].setup({
+vim.lsp.config("rust_analyzer", {
+	cmd = { "rust-analyzer" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring dart server
-lspconfig["dartls"].setup({
+vim.lsp.config("dartls", {
+	cmd = { "dart", "language-server", "--protocol=lsp" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configuring arduino server
-lspconfig["arduino_language_server"].setup({
+vim.lsp.config("arduino_language_server", {
+	cmd = { "arduino-language-server" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
