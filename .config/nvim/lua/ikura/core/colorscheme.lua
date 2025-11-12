@@ -32,70 +32,8 @@ require("kanagawa").setup({
 	},
 })
 
--- Setup for monokai-pro colorscheme
-require("monokai-pro").setup({
-	transparent_background = true,
-	terminal_colors = false,
-	devicons = true,
-	styles = {
-		comment = { italic = true },
-		keyword = { italic = true },
-		type = { italic = true },
-		storageclass = { italic = true },
-		structure = { italic = true },
-		parameter = { italic = true },
-		annotation = { italic = true },
-		tag_attribute = { italic = true },
-	},
-	filter = "ristretto",
-	day_night = {
-		enable = true,
-		day_filter = "pro",
-		night_filter = "spectrum",
-	},
-	inc_search = "background",
-	background_clear = {
-		"toggleterm",
-		"telescope",
-		"which-key",
-		"renamer",
-	},
-	plugins = {
-		bufferline = {
-			underline_selected = false,
-			underline_visible = false,
-		},
-		indent_blankline = {
-			context_highlight = "default",
-			context_start_underline = false,
-		},
-	},
-	override = function(c) end,
-})
-
--- Function to toggle between colorschemes
-local current_colorscheme = "kanagawa"
-
-local function toggle_colorscheme()
-	if current_colorscheme == "monokai-pro" then
-		local status, _ = pcall(vim.cmd, "colorscheme kanagawa")
-		if status then
-			current_colorscheme = "kanagawa"
-		else
-			print("kanagawa not found!")
-		end
-	else
-		local status, _ = pcall(vim.cmd, "colorscheme monokai-pro")
-		if status then
-			current_colorscheme = "monokai-pro"
-		else
-			print("monokai-pro not found!")
-		end
-	end
-end
-
 -- Set initial colorscheme
-local status, _ = pcall(vim.cmd, "colorscheme " .. current_colorscheme)
+local status, _ = pcall(vim.cmd, "colorscheme kanagawa")
 if not status then
-	print(current_colorscheme .. " not found!")
+	print("kanagawa not found!")
 end
