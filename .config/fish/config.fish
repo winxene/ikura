@@ -217,3 +217,6 @@ end
 set _CONDA_ROOT "/opt/homebrew/anaconda3"
 # <<< conda initialize <<<
 
+
+# Added by Windsurf
+fish_add_path /Users/ikura/.codeium/windsurf/bin
