@@ -6,6 +6,8 @@ This repository contains my personal dotfiles, which include configurations for 
 
 Current theme: [Kanagawa](https://github.com/rebelot/kanagawa.nvim)
 
+Note that for the package manager, as an ex-packer user, I recently switched to [Lazy.nvim](https:/github.com/folke/lazy.nvim), thus the styling of my code is still based on packer.
+
 I took some references from:
 
 - https://github.com/craftzdog/dotfiles-public/tree/master
