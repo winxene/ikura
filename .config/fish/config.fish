@@ -220,3 +220,9 @@ set _CONDA_ROOT "/opt/homebrew/anaconda3"
 
 # Added by Windsurf
 fish_add_path /Users/ikura/.codeium/windsurf/bin
+
+# Added by Antigravity
+fish_add_path /Users/ikura/.antigravity/antigravity/bin
+
+# Added by Antigravity
+fish_add_path /Users/ikura/.antigravity/antigravity/bin
