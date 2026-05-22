@@ -29,7 +29,7 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "toggle file explor
 
 -- ──────────────────────────────── Copilot Chat ──────────────────────────────────
 
-keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "open copilot chat" })
+keymap.set("n", "<leader>cc", ":Codeium Chat<CR>", { desc = "open copilot chat" })
 
 -- ──────────────────────────────── Telescope (Files) ───────────────────────────────
 

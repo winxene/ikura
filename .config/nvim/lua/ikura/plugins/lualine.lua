@@ -4,12 +4,13 @@ if not status then
   return
 end
 
-local lualine_monokai_pro = require("monokai-pro")
 
 -- set up lualine
 require("lualine").setup({
   options = {
-    theme = 'monokai-pro',
+    theme = 'kanagawa',
+    icons_enabled = true,
+    globalstatus = true,
   },
   sections = {
     lualine_a = { "mode" },

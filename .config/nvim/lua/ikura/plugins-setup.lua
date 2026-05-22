@@ -177,27 +177,6 @@ lazy.setup({
 		---@type Flash.Config
 		opts = {},
 	},
-	-- Discord presence (Cord) for Neovim
-	{
-		"vyfor/cord.nvim",
-		build = ":Cord update",
-		-- opts = {}
-		config = function()
-			require("ikura.plugins.cord")
-		end,
-	},
-	-- Copilot
-	"github/copilot.vim",
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"github/copilot.vim",
-		},
-		config = function()
-			require("ikura.plugins.copilot-chat")
-		end,
-	},
 
 	-- Flutter/Dart support
 	"dart-lang/dart-vim-plugin",
