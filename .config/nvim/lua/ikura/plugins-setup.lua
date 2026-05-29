@@ -18,7 +18,6 @@ end
 
 lazy.setup({
 	"nvim-lua/plenary.nvim", -- Lua functions library used by many plugins
-	"antoinemadec/FixCursorHold.nvim", -- Fix CursorHold performance
 
 	-- UI
 	{
@@ -36,7 +35,20 @@ lazy.setup({
 	},
 	{
 		"nvim-tree/nvim-tree.lua", -- File explorer
+		cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFile" },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		init = function()
+			vim.api.nvim_create_autocmd("VimEnter", {
+				callback = function(data)
+					if vim.fn.isdirectory(data.file) ~= 1 then
+						return
+					end
+					vim.cmd.cd(data.file)
+					require("lazy").load({ plugins = { "nvim-tree.lua" } })
+					require("nvim-tree.api").tree.open()
+				end,
+			})
+		end,
 		config = function()
 			require("ikura.plugins.nvim-tree")
 		end,
@@ -56,6 +68,7 @@ lazy.setup({
 	-- Git integration
 	{
 		"lewis6991/gitsigns.nvim", -- Git decorations
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("ikura.plugins.gitsigns")
 		end,
@@ -64,9 +77,12 @@ lazy.setup({
 	-- LSP and completion
 	{
 		"williamboman/mason.nvim", -- Package manager for LSP servers, linters, formatters
+		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall" },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim", -- Bridge between mason and lspconfig
 			"neovim/nvim-lspconfig", -- LSP config
+			"hrsh7th/cmp-nvim-lsp", -- LSP completion capabilities
 		},
 		config = function()
 			require("ikura.plugins.lsp.mason")
@@ -75,13 +91,14 @@ lazy.setup({
 	},
 	{
 		"glepnir/lspsaga.nvim",
+		cmd = "Lspsaga",
 		config = function()
 			require("ikura.plugins.lsp.lspsaga")
 		end,
 	},
-	"onsails/lspkind.nvim",
 	{
 		"nvimtools/none-ls.nvim", -- Formatting, linting, etc.
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvimtools/none-ls-extras.nvim",
@@ -95,6 +112,7 @@ lazy.setup({
 	-- Completion
 	{
 		"hrsh7th/nvim-cmp", -- The completion plugin
+		event = "InsertEnter",
 		config = function()
 			require("ikura.plugins.nvim-cmp")
 		end,
@@ -102,6 +120,7 @@ lazy.setup({
 			"hrsh7th/cmp-buffer", -- Buffer completions
 			"hrsh7th/cmp-path", -- Path completions
 			"hrsh7th/cmp-nvim-lsp", -- LSP completions
+			"onsails/lspkind.nvim", -- Completion pictograms
 			"saadparwaiz1/cmp_luasnip", -- Snippet completions
 			{
 				"L3MON4D3/LuaSnip", -- Snippet engine
@@ -115,6 +134,7 @@ lazy.setup({
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter", -- Syntax highlighting
+		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
 			"windwp/nvim-ts-autotag", -- Auto close/rename HTML tags
@@ -127,6 +147,7 @@ lazy.setup({
 	-- Autopairs
 	{
 		"windwp/nvim-autopairs", -- Auto pairs plugin
+		event = "InsertEnter",
 		config = function()
 			require("ikura.plugins.autopairs")
 		end,
@@ -143,6 +164,7 @@ lazy.setup({
 	-- Telescope (fuzzy finder)
 	{
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -161,6 +183,7 @@ lazy.setup({
 	-- Trouble (diagnostics)
 	{
 		"folke/trouble.nvim",
+		cmd = "Trouble",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("ikura.plugins.trouble")
@@ -168,7 +191,21 @@ lazy.setup({
 	},
 
 	-- PlatformIO support
-	"anurag3301/nvim-platformio.lua",
+	{
+		"anurag3301/nvim-platformio.lua",
+		cmd = {
+			"Pioinit",
+			"PioLSP",
+			"Piorun",
+			"Piocmdh",
+			"Piocmdf",
+			"Piomon",
+			"Piolsserial",
+			"Piolib",
+			"Piodebug",
+			"PioTermList",
+		},
+	},
 
 	-- Navigations
 	{
@@ -179,12 +216,14 @@ lazy.setup({
 	},
 
 	-- Flutter/Dart support
-	"dart-lang/dart-vim-plugin",
-	"thosakwe/vim-flutter",
+	{ "dart-lang/dart-vim-plugin", ft = "dart" },
+	{ "thosakwe/vim-flutter", ft = "dart" },
 
 	-- Markdown preview
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
+		cmd = "RenderMarkdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
@@ -194,10 +233,34 @@ lazy.setup({
 		end,
 	},
 
+	-- codediff
+	{
+		"esmuellert/codediff.nvim",
+		cmd = "CodeDiff",
+		config = function()
+			require("codediff").setup({
+				explorer = {
+					view_mode = "tree",
+				},
+				history = {
+					view_mode = "tree",
+				},
+			})
+		end,
+	},
+
 	--Harpoon 2 (Simple buffer navigation)
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
+		cmd = {
+			"HarpoonListToggle",
+			"HarpoonListAdd",
+			"HarpoonListRemove",
+			"HarpoonListPrev",
+			"HarpoonListNext",
+			"HarpoonSelect",
+		},
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 		config = function()
 			require("ikura.plugins.harpoon")
