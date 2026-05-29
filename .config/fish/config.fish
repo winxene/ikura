@@ -18,7 +18,7 @@ set -g theme_display_git_stashed_verbose yes
 set -g theme_display_git_master_branch yes
 set -g theme_display_git_untracked yes
 set -g theme_display_git_dirty yes
-set -g theme_display_nvm yes
+set -g theme_display_nvm no
 set -g theme_display_virtualenv yes
 
 set theme "kanagawa" 
@@ -110,11 +110,6 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 
-# tmux
-function fish_postexec
-    ~/.config/tmux/scripts/tmux-rename-session.sh
-end
-
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
 
@@ -155,22 +150,11 @@ set -gx PATH $PATH $HOME/.config/ide/ide.sh
 # set adb path
 set -gx PATH $PATH /Users/ikura/Library/Android/sdk/platform-tools
 
-# NVM
-function __check_rvm --on-variable PWD --description 'Do nvm stuff'
-  status --is-command-substitution; and return
-
-  if test -f .nvmrc; and test -r .nvmrc;
-    nvm use
-  else
-  end
+# fnm
+set -gx FNM_DIR "$HOME/.fnm"
+if type -q fnm
+    fnm env --use-on-cd --shell fish | source
 end
-
-function nvm
-  bass source (brew --prefix nvm)/nvm.sh --no-use ';' nvm $argv
-end
-
-set -gx NVM_DIR (brew --prefix nvm)/nvm
-nvm use default --silent
 
 switch (uname)
   case Darwin
@@ -202,20 +186,27 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/homebrew/anaconda3/bin/conda
-    eval /opt/homebrew/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
-        . "/opt/homebrew/anaconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/opt/homebrew/anaconda3/bin" $PATH
+# Conda (lazy-load; run `conda activate <env>` when needed)
+set -gx CONDA_EXE /opt/homebrew/anaconda3/bin/conda
+set -gx _CONDA_ROOT /opt/homebrew/anaconda3
+
+# Drop inherited base env from old tmux/server sessions.
+if test "$CONDA_PREFIX" = "$_CONDA_ROOT"
+    set -e CONDA_DEFAULT_ENV CONDA_PREFIX CONDA_PROMPT_MODIFIER CONDA_SHLVL CONDA_PYTHON_EXE
+end
+set -gx PATH (string match -v /opt/homebrew/anaconda3/bin $PATH)
+
+if test -x $CONDA_EXE
+    if not contains /opt/homebrew/anaconda3/condabin $PATH
+        set -gx PATH /opt/homebrew/anaconda3/condabin $PATH
+    end
+
+    function conda --description 'Lazy-load conda'
+        functions -e conda
+        eval $CONDA_EXE "shell.fish" "hook" | source
+        conda $argv
     end
 end
-
-set _CONDA_ROOT "/opt/homebrew/anaconda3"
-# <<< conda initialize <<<
 
 
 # Added by Windsurf
