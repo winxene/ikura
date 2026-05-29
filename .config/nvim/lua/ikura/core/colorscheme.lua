@@ -60,16 +60,22 @@ vim.api.nvim_create_user_command("ThemeReload", function()
   apply_theme()
 end, {})
 
--- Auto-reload using a timer that polls the file
+-- Auto-reload using OS filesystem events
+local uv = vim.uv or vim.loop
 local theme_file_path = vim.fn.expand("~/.config/themes/theme")
 local last_theme = get_theme_mode()
-local timer = nil
+local watcher = nil
 
 -- Function to start/stop auto-reload
 local function start_theme_watcher()
-  if timer then return end
-  timer = vim.loop.new_timer()
-  timer:start(0, 2000, vim.schedule_wrap(function()
+  if watcher then return end
+  watcher = uv.new_fs_event()
+  watcher:start(theme_file_path, {}, vim.schedule_wrap(function(err)
+    if err then
+      vim.notify("Theme watcher error: " .. err, vim.log.levels.ERROR)
+      return
+    end
+
     local current_theme = get_theme_mode()
     if current_theme ~= last_theme then
       last_theme = current_theme
@@ -77,14 +83,13 @@ local function start_theme_watcher()
       vim.notify("Theme auto-switched to " .. current_theme, vim.log.levels.INFO)
     end
   end))
-  vim.notify("Theme auto-reload enabled", vim.log.levels.INFO)
 end
 
 local function stop_theme_watcher()
-  if timer then
-    timer:stop()
-    timer:close()
-    timer = nil
+  if watcher then
+    watcher:stop()
+    watcher:close()
+    watcher = nil
     vim.notify("Theme auto-reload disabled", vim.log.levels.INFO)
   end
 end
@@ -99,12 +104,12 @@ end
 vim.api.nvim_create_user_command("ThemeWatchStart", start_theme_watcher, {})
 vim.api.nvim_create_user_command("ThemeWatchStop", stop_theme_watcher, {})
 
--- Clean up timer on exit
+-- Clean up watcher on exit
 vim.api.nvim_create_autocmd("VimLeavePre", {
   callback = function()
-    if timer then
-      timer:stop()
-      timer:close()
+    if watcher then
+      watcher:stop()
+      watcher:close()
     end
   end,
 })
