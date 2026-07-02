@@ -1,7 +1,7 @@
 set fish_greeting "https://stump-zydeco-616.notion.site/Fish-Chan-de117e5bda73414882aa237bd1236d28 for switching back to zsh"
 
 
-set -gx TERM xterm-256color
+# Do not set TERM here. Terminal/tmux set correct value.
 
 # theme
 set -g theme_color_scheme terminal-dark
@@ -217,3 +217,9 @@ fish_add_path /Users/ikura/.antigravity/antigravity/bin
 
 # Added by Antigravity
 fish_add_path /Users/ikura/.antigravity/antigravity/bin
+
+# opencode
+fish_add_path /Users/ikura/.opencode/bin
+
+# Added by Antigravity IDE
+fish_add_path /Users/ikura/.antigravity-ide/antigravity-ide/bin
