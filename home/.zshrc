@@ -114,4 +114,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /Users/ikura/.docker/init-zsh.sh || true # Added by Docker Desktop
+source "$HOME/.docker/init-zsh.sh" || true # Added by Docker Desktop
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:$HOME/.maestro/bin

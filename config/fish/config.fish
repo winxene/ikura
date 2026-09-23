@@ -145,10 +145,11 @@ set -gx PATH $PATH /Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Hom
 set -gx PATH $PATH $HOME/.pub-cache/bin
 
 # set path to ide script
-set -gx PATH $PATH $HOME/.config/ide/ide.sh
+set -gx PATH (string match -v -- $HOME/.config/ide/ide.sh $PATH)
+set -gx PATH $PATH $HOME/.config/ide
 
 # set adb path
-set -gx PATH $PATH /Users/ikura/Library/Android/sdk/platform-tools
+set -gx PATH $PATH $HOME/Library/Android/sdk/platform-tools
 
 # fnm
 set -gx FNM_DIR "$HOME/.fnm"
@@ -176,7 +177,7 @@ if status --is-interactive
 end
 
 # pnpm
-set -gx PNPM_HOME "/Users/ikura/Library/pnpm"
+set -gx PNPM_HOME "$HOME/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
@@ -210,16 +211,16 @@ end
 
 
 # Added by Windsurf
-fish_add_path /Users/ikura/.codeium/windsurf/bin
+fish_add_path $HOME/.codeium/windsurf/bin
 
 # Added by Antigravity
-fish_add_path /Users/ikura/.antigravity/antigravity/bin
-
-# Added by Antigravity
-fish_add_path /Users/ikura/.antigravity/antigravity/bin
+fish_add_path $HOME/.antigravity/antigravity/bin
 
 # opencode
-fish_add_path /Users/ikura/.opencode/bin
+fish_add_path $HOME/.opencode/bin
 
 # Added by Antigravity IDE
-fish_add_path /Users/ikura/.antigravity-ide/antigravity-ide/bin
+fish_add_path $HOME/.antigravity-ide/antigravity-ide/bin
+
+# Added by Antigravity CLI installer
+fish_add_path $HOME/.local/bin

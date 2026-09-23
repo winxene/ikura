@@ -42,10 +42,6 @@
 # resize-overlay-duration = 4s 200ms
 font-family = MesloLGS NF Regular
 font-size = 14
-# background-image = "/Users/ikura/Downloads/5ac2ce47f97301a88eff0f0f805bf425.jpg"
-# background-image-opacity = 0.05
-# background-image-fit = cover
-# background-image-position = center
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true 
@@ -56,9 +52,5 @@ window-colorspace = display-p3
 title = " "
 window-decoration = client
 command = /opt/homebrew/bin/fish -lc 'tmux new-session -A -s (basename $PWD)'
-background-image = "/Users/ikura/Downloads/5ac2ce47f97301a88eff0f0f805bf425.jpg"
-background-image-opacity = 0.05
-background-image-fit = cover
-background-image-position = center
 # theme = dark:Kanagawa-Wave,light:Kanagawa-Lotus
 theme = Kanagawa-Wave
