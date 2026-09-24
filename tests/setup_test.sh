@@ -36,10 +36,20 @@ grep -qx 'tap "mobile-dev-inc/tap"' "$repo/Brewfile"
 grep -qx 'brew "bun"' "$repo/Brewfile"
 grep -qx 'brew "firebase-cli"' "$repo/Brewfile"
 grep -qx 'brew "mobile-dev-inc/tap/maestro"' "$repo/Brewfile"
+grep -qx 'brew "starship"' "$repo/Brewfile"
+grep -qx 'brew "zsh-autosuggestions"' "$repo/Brewfile"
+grep -qx 'brew "zsh-syntax-highlighting"' "$repo/Brewfile"
 grep -qx 'cask "flutter"' "$repo/Brewfile"
 if grep -q '/Library/flutter\|\.bun/bin\|\.maestro/bin' \
   "$repo/config/fish/config.fish" "$repo/home/.zshrc"; then
   printf 'legacy mobile tool path remains\n' >&2
+  exit 1
+fi
+
+zsh -n "$repo/home/.zshrc"
+grep -q 'starship init zsh' "$repo/home/.zshrc"
+if grep -q 'powerlevel10k\|p10k.zsh' "$repo/home/.zshrc"; then
+  printf 'legacy Zsh prompt configuration remains\n' >&2
   exit 1
 fi
 

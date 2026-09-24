@@ -42,6 +42,8 @@ brew "watchman"
 brew "wget"
 brew "xcodegen"
 brew "yazi"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 brew "zoxide"
 
 # Applications
