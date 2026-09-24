@@ -4,7 +4,7 @@
 
 **Goal:** Move remaining human-edited configuration into `~/dotfiles` while preserving local identity, credentials, and runtime state outside Git.
 
-**Architecture:** Extend existing `home/`, `config/`, and `tools/` allowlists. Reuse `bootstrap.sh` file-level backup/link behavior; sanitize copied JSON/TOML and test activation under a temporary home before touching live files.
+**Architecture:** Extend existing `home/`, `config/`, and `tools/` allowlists. Reuse `bootstrap.sh` file-level backup/link behavior; sanitize copied JSON/TOML and test activation under a temporary home before touching live files. Add an interactive `setup.sh` entry point and a narrowly allowlisted `macos.sh` settings script, both with dry-run support.
 
 **Tech Stack:** POSIX shell, Git, Python standard library, JSON, TOML
 
@@ -115,7 +115,31 @@ git diff --cached --check
 git commit -m "feat(dotfiles): link expanded config allowlist"
 ```
 
-### Task 5: Activate, clean obsolete duplicates, and verify
+### Task 5: Add one-command installer and safe macOS settings
+
+**Files:**
+- Create: `setup.sh`
+- Create: `macos.sh`
+- Create: `tests/setup_test.sh`
+
+**Interfaces:**
+- Produces: interactive setup choices and allowlisted macOS preferences
+
+- [ ] Write a failing test that pipes choices 1–4 into `setup.sh --dry-run` and verifies expected Brewfile, bootstrap, and macOS actions.
+- [ ] Implement `macos.sh [--dry-run]`: back up current allowlisted defaults, apply audited Dock/Finder values, then restart only Dock and Finder.
+- [ ] Implement `setup.sh [--dry-run]`: install Homebrew when missing, show four choices, run essential and optional Brewfiles as selected, run bootstrap, optionally run macOS settings, then validate links.
+- [ ] Run shell syntax and setup tests, then commit.
+
+```bash
+sh -n setup.sh macos.sh tests/setup_test.sh
+sh tests/setup_test.sh
+printf '4\n' | ./setup.sh --dry-run
+git add setup.sh macos.sh tests/setup_test.sh
+git diff --cached --check
+git commit -m "feat(dotfiles): add interactive Mac setup"
+```
+
+### Task 6: Activate, clean obsolete duplicates, and verify
 
 **Files:**
 - Replace approved live files with links

@@ -8,6 +8,8 @@ Organize remaining human-edited configuration under `~/dotfiles` while leaving c
 
 Extend the existing explicit allowlist and file-level bootstrap. Applications keep required paths under `$HOME`, but managed files there become symlinks into `~/dotfiles`. Never link whole runtime directories.
 
+Add `setup.sh` as the interactive entry point. It installs Homebrew when missing, offers essential/optional package and macOS-setting choices, runs `bootstrap.sh`, then validates the setup. `setup.sh --dry-run` prints actions without changing the machine.
+
 ## Scope
 
 Add standalone configuration under `home/`:
@@ -55,6 +57,24 @@ Never track:
 7. Activate links and validate each affected tool.
 8. Move obsolete duplicates and empty config remnants into backup.
 9. Commit locally; do not push without explicit approval.
+
+## macOS settings
+
+`macos.sh` manages only audited, explicit preferences:
+
+- Dock auto-hide, 25-pixel tile size, magnification, scale minimization, hidden recent apps, bottom orientation
+- Finder path bar and list view
+
+Before applying changes, save current values to a timestamped backup. Restart Dock and Finder afterward. Do not manage Apple ID/iCloud, Keychain, privacy/TCC, network, display, audio, Touch ID, or hardware-specific preferences.
+
+## One-command setup
+
+Running `~/dotfiles/setup.sh` presents four choices:
+
+1. Essential apps and dotfiles
+2. Essential plus optional apps and dotfiles
+3. Essential apps, dotfiles, and safe macOS settings
+4. Everything
 
 ## Cleanup
 
