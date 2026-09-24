@@ -6,34 +6,28 @@ Personal macOS configuration for Fish, tmux, Ghostty, Neovim, Zsh, and selected 
 
 - `config/` — XDG application config
 - `home/` — files linked directly into `$HOME`
-- `tools/` — safe Pi, Codex, OpenCode, and Zed config
+- `tools/` — safe AI/developer-tool config
 - `Brewfile` — essential tools and apps
 - `Brewfile.optional` — opt-in tools and apps
+- `setup.sh` — interactive app/config/macOS setup
 - `bootstrap.sh` — file-level symlink installer
+- `macos.sh` — allowlisted Dock and Finder settings
 
 ## New Mac setup
 
-Install Xcode Command Line Tools and Homebrew:
+Install Xcode Command Line Tools once:
 
 ```sh
 xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Clone and install essentials:
+Then clone and start interactive setup with one pasted command:
 
 ```sh
-git clone https://github.com/winxene/ikura.git ~/dotfiles
-brew bundle --file=~/dotfiles/Brewfile
-~/dotfiles/bootstrap.sh --dry-run
-~/dotfiles/bootstrap.sh
+git clone https://github.com/winxene/ikura.git ~/dotfiles && ~/dotfiles/setup.sh
 ```
 
-Install optional apps and tools when needed:
-
-```sh
-brew bundle --file=~/dotfiles/Brewfile.optional
-```
+The menu installs essentials, optional apps, dotfiles, and safe macOS settings. Preview without changes using `~/dotfiles/setup.sh --dry-run`. Homebrew is installed automatically when missing.
 
 Enable Fish:
 
@@ -42,7 +36,7 @@ grep -qxF /opt/homebrew/bin/fish /etc/shells || echo /opt/homebrew/bin/fish | su
 chsh -s /opt/homebrew/bin/fish
 ```
 
-Sign in to apps and developer tools manually. Credentials, SSH keys, API keys, sessions, histories, caches, databases, generated files, and personal data are intentionally excluded.
+Sign in to apps and developer tools manually. Credentials, SSH keys, API keys, sessions, histories, caches, databases, generated files, and personal data are intentionally excluded. Git identity stays in local-only `~/.gitconfig.local`.
 
 ## Check
 
@@ -50,7 +44,7 @@ Sign in to apps and developer tools manually. Credentials, SSH keys, API keys, s
 fish -n ~/.config/fish/config.fish
 tmux -f ~/.config/tmux/tmux.conf start-server \; kill-server
 nvim --headless '+qa'
-find ~/.config ~/.pi ~/.codex -type l ! -exec test -e {} \; -print
+find ~/.config ~/.pi ~/.codex ~/.claude ~/.gemini ~/.agents -type l ! -exec test -e {} \; -print
 ```
 
 No output from the final command means managed links resolve.
@@ -64,7 +58,7 @@ git -C ~/dotfiles pull --ff-only
 
 ## Rollback
 
-Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/` before linking. To restore one, remove its symlink and move the matching backup file to its original path. Migration-level Git backups live under `~/.dotfiles-migration-backup/`.
+Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/` before linking. macOS preferences are exported under `~/.dotfiles-macos-backup/`. To restore one file, remove its symlink and move the matching backup file to its original path. Migration-level Git backups live under `~/.dotfiles-migration-backup/`.
 
 ## Notes
 
