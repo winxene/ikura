@@ -52,9 +52,46 @@ link_tree() {
   done
 }
 
+retire_link() {
+  target=$1
+
+  if [ -L "$target" ]; then
+    source=$(readlink "$target")
+    case $source in
+      "$repo"/*)
+        printf 'unlink retired %s\n' "$target"
+        [ "$dry_run" = true ] || unlink "$target"
+        ;;
+    esac
+  fi
+}
+
+for target in \
+  "$HOME/.bash_profile" \
+  "$HOME/.bashrc" \
+  "$HOME/.p10k.zsh" \
+  "$HOME/.yarnrc" \
+  "$HOME/.config/fish/completions/bun.fish" \
+  "$HOME/.config/fish/conf.d/fish_frozen_key_bindings.fish" \
+  "$HOME/.config/fish/conf.d/fish_frozen_theme.fish" \
+  "$HOME/.config/fish/conf.d/z.fish" \
+  "$HOME/.config/fish/config-osx.fish" \
+  "$HOME/.config/fish/functions/__z.fish" \
+  "$HOME/.config/fish/functions/__z_add.fish" \
+  "$HOME/.config/fish/functions/__z_clean.fish" \
+  "$HOME/.config/fish/functions/__z_complete.fish" \
+  "$HOME/.config/fish/functions/peco_kill.fish" \
+  "$HOME/.config/fish/functions/peco_select_history.fish" \
+  "$HOME/.config/omf/bundle" \
+  "$HOME/.config/omf/channel" \
+  "$HOME/.config/omf/theme"
+do
+  retire_link "$target"
+done
+
 link_tree "$repo/home" "$HOME"
 
-for name in fish ghostty git herdr ide linearmouse neofetch nvim omf themes tmux; do
+for name in fish ghostty git herdr ide linearmouse neofetch nvim themes tmux; do
   link_tree "$repo/config/$name" "$HOME/.config/$name"
 done
 link_file "$repo/config/starship.toml" "$HOME/.config/starship.toml"

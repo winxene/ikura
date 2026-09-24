@@ -48,9 +48,21 @@ fi
 
 zsh -n "$repo/home/.zshrc"
 grep -q 'starship init zsh' "$repo/home/.zshrc"
+grep -q 'zoxide init zsh' "$repo/home/.zshrc"
 if grep -q 'powerlevel10k\|p10k.zsh' "$repo/home/.zshrc"; then
   printf 'legacy Zsh prompt configuration remains\n' >&2
   exit 1
 fi
+
+fish -n "$repo/config/fish/config.fish"
+grep -q 'zoxide init fish' "$repo/config/fish/config.fish"
+if grep -q 'config-linux\|config-windows\|anaconda3\|Python/3.9\|jdk-16\|fzf-file-widget\|toggle-vi-mode' \
+  "$repo/config/fish/config.fish"; then
+  printf 'stale Fish configuration remains\n' >&2
+  exit 1
+fi
+
+test ! -e "$repo/home/.p10k.zsh"
+test ! -e "$repo/config/omf/theme"
 
 printf 'setup test passed\n'

@@ -69,6 +69,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=#727169'
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 (( $+commands[starship] )) && eval "$(starship init zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 [[ -r /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
