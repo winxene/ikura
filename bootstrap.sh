@@ -54,7 +54,7 @@ link_tree() {
 
 link_tree "$repo/home" "$HOME"
 
-for name in fish ghostty git ide linearmouse nvim omf themes tmux; do
+for name in fish ghostty git herdr ide linearmouse neofetch nvim omf themes tmux; do
   link_tree "$repo/config/$name" "$HOME/.config/$name"
 done
 link_file "$repo/config/starship.toml" "$HOME/.config/starship.toml"
@@ -63,3 +63,6 @@ link_tree "$repo/tools/pi/agent" "$HOME/.pi/agent"
 link_tree "$repo/tools/codex" "$HOME/.codex"
 link_tree "$repo/tools/opencode" "$HOME/.config/opencode"
 link_tree "$repo/tools/zed" "$HOME/.config/zed"
+link_tree "$repo/tools/claude" "$HOME/.claude"
+link_tree "$repo/tools/gemini" "$HOME/.gemini"
+link_tree "$repo/tools/agents" "$HOME/.agents"
