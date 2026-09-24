@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/Library/flutter/bin:$PATH:$(yarn global bin)"
+export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:/opt/homebrew/bin/go/bin"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -119,4 +119,3 @@ source "$HOME/.docker/init-zsh.sh" || true # Added by Docker Desktop
 
 # Added by Antigravity CLI installer
 export PATH="$HOME/.local/bin:$PATH"
-export PATH=$PATH:$HOME/.maestro/bin

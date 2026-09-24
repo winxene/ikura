@@ -117,14 +117,8 @@ set -gx PATH node_modules/.bin $PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
-# Flutter
-set -gx PATH $PATH /Library/flutter/bin
-
 # Rust
 set -gx PATH $PATH $HOME/.cargo/bin
-
-# Dart
-set -gx PATH $PATH /Library/flutter/bin/cache/dart-sdk/bin
 
 # Docker
 set -gx PATH $PATH /Applications/Docker.app/Contents/Resources/bin
@@ -182,10 +176,6 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
 
 # Conda (lazy-load; run `conda activate <env>` when needed)
 set -gx CONDA_EXE /opt/homebrew/anaconda3/bin/conda

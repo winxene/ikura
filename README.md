@@ -38,6 +38,18 @@ chsh -s /opt/homebrew/bin/fish
 
 Sign in to apps and developer tools manually. Credentials, SSH keys, API keys, sessions, histories, caches, databases, generated files, and personal data are intentionally excluded. Git identity stays in local-only `~/.gitconfig.local`.
 
+## Mobile development
+
+Essential setup includes Flutter/Dart, Firebase CLI, Bun, mobile.dev Maestro, Android Studio, CocoaPods, Watchman, SwiftGen, SwiftLint, and XcodeGen. Install full Xcode manually from the App Store.
+
+All command-line tools use unpinned Homebrew packages. Check current and available versions with:
+
+```sh
+brew update
+brew outdated --greedy
+brew info flutter firebase-cli bun mobile-dev-inc/tap/maestro
+```
+
 ## Check
 
 ```sh
@@ -53,6 +65,9 @@ No output from the final command means managed links resolve.
 
 ```sh
 git -C ~/dotfiles pull --ff-only
+brew update
+brew upgrade
+brew upgrade --cask --greedy
 ~/dotfiles/bootstrap.sh
 ```
 
