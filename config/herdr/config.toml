@@ -1,0 +1,74 @@
+onboarding = false
+
+[theme]
+name = "kanagawa"
+
+[ui.sound]
+enabled = true
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+agent_panel_scope = "all"
+
+[keys]
+# Herdr prefix differs from tmux (tmux uses ctrl+a).
+prefix = "ctrl+b"
+
+# tmux-like pane/window flow under Herdr prefix.
+settings = "prefix+shift+s"
+detach = "prefix+d"
+reload_config = "prefix+r"
+open_notification_target = "prefix+shift+o"
+workspace_picker = "prefix+s"
+goto = "prefix+q"
+
+new_tab = "prefix+c"
+rename_tab = "prefix+comma"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+ampersand"
+
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+cycle_pane_next = "prefix+o"
+
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+close_pane = "prefix+x"
+zoom = "prefix+m"
+resize_mode = "prefix+shift+r"
+toggle_sidebar = "prefix+b"
+
+[[keys.command]]
+key = "prefix+ctrl+h"
+type = "shell"
+command = "/opt/homebrew/bin/herdr pane resize --direction left --current"
+
+[[keys.command]]
+key = "prefix+ctrl+j"
+type = "shell"
+command = "/opt/homebrew/bin/herdr pane resize --direction down --current"
+
+[[keys.command]]
+key = "prefix+ctrl+k"
+type = "shell"
+command = "/opt/homebrew/bin/herdr pane resize --direction up --current"
+
+[[keys.command]]
+key = "prefix+ctrl+l"
+type = "shell"
+command = "/opt/homebrew/bin/herdr pane resize --direction right --current"
+
+[experimental]
+pane_history = false

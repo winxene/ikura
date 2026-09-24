@@ -1,0 +1,9 @@
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"

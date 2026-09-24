@@ -1,0 +1,12 @@
+[credential "https://git.kiosk.id"]
+	provider = generic
+[includeIf "gitdir:~/Development/iglo/tauri/velapod-orchestrator/"]
+	path = ~/.gitconfig-velapod
+[merge "ours"]
+	driver = true
+[credential]
+	helper = manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[include]
+	path = ~/.gitconfig.local
