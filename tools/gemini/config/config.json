@@ -1,0 +1,11 @@
+{
+  "userSettings": {
+    "customThemeSeedsDark": {
+      "background": "#1f1f28",
+      "foregroundOverride": "#DCD7BA",
+      "primary": "#2D4F67"
+    },
+    "remoteControlHostname": "mac-void-halo",
+    "themeMode": "THEME_MODE_DARK"
+  }
+}

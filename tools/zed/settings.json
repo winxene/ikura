@@ -1,0 +1,192 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Latte",
+  },
+  "terminal": {
+    "font_size": 12.0,
+    "font_family": "MesloLGS NF",
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never",
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "show_edit_predictions": true,
+  "tab_size": 2,
+  "context_servers": {
+    "mcp-server-supabase": {
+      "enabled": true,
+      "settings": {},
+    },
+    "shadcn-mcp-server": {
+      "enabled": true,
+      "settings": {},
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+      },
+    },
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5",
+    },
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o",
+    },
+  },
+  "copilot": {
+    "disabled_globs": [".env", "intro.go"],
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Kanagawa Lotus",
+    "dark": "Kanagawa Wave",
+  },
+  // "theme_overrides": {
+  //   "Kanagawa Wave": {
+  //     "background.appearance": "transparent",
+  //     "background": "#1f1f28EC",
+  //     "editor.background": "#00000000",
+  //     "panel.background": "#00000000",
+  //     "terminal.background": "#00000000",
+  //     "toolbar.background": "#00000000",
+  //     "tab_bar.background": "#00000000",
+  //     "title_bar.background": "#1f1f28EC",
+  //     "status_bar.background": "#1f1f28EC",
+  //     "editor.gutter.background": "#00000000",
+  //     "element.background": "#00000000",
+  //     "element.hover": "#7e9cd815",
+  //     "element.active": "#7e9cd825",
+  //     "element.selected": "#7e9cd830",
+
+  //     "tab.inactive_background": "#00000000",
+  //     "tab.active_background": "#7e9cd830",
+  //     "editor.active_line.background": "#7e9cd810",
+  //     "editor.line_number": "#dcd7ba40",
+  //     "editor.active_line_number": "#e6c384",
+  //     "editor.indent_guide": "#dcd7ba10",
+  //     "editor.indent_guide_active": "#7e9cd850",
+
+  //     "surface.background": "#1f1f28f5",
+  //     "elevated_surface.background": "#1f1f28fb",
+  //   },
+  // },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "vim_mode": true,
+  //bindings
+  "vim": {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+    },
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "notification_panel": {
+    "dock": "left",
+  },
+  "chat_panel": {
+    "dock": "left",
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"],
+    "Markdown": ["md", "markdown"],
+    "Python": ["py"],
+    "Shell": ["sh", "bash", "zsh"],
+    "YAML": ["yaml", "yml"],
+  },
+  "scrollbar": {
+    "show": "auto",
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 12.0,
+  "buffer_font_family": "SFMono-Regular",
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "discord_presence": {
+      "initialization_options": {
+        "base_icons_url": "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/",
+
+        "state": "Working on {language} project",
+        "details": "In My Mac",
+        "large_image": "{base_icons_url}/{language}.png",
+        "large_text": "{language:u}", // :u makes first letter upper-case
+        "small_image": "{base_icons_url}/zed.png",
+        "small_text": "Zed",
+
+        "rules": {
+          "mode": "blacklist", // or whitelist
+          "paths": ["absolute path"],
+        },
+
+        "git_integration": true,
+      },
+    },
+  },
+}

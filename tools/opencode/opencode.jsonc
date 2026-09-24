@@ -1,0 +1,34 @@
+{
+  "plugin": [
+    "oh-my-opencode-slim"
+  ],
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": [
+      "~/.agents/skills"
+    ]
+  },
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true,
+  "mcp": {
+    "paca": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@paca-ai/paca-mcp"
+      ],
+      "environment": {
+        "PACA_API_URL": "https://paca.kiosk.id"
+      },
+      "enabled": true
+    }
+  }
+}

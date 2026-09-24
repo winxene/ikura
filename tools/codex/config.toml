@@ -1,0 +1,64 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+network_access = "enabled"
+
+[features]
+goals = true
+unified_exec = true
+child_agents_md = true
+multi_agent = true
+plugin_hooks = true
+plugins = true
+hooks = true
+memories = true
+
+[agents.explorer]
+config_file = "./agents/explorer.toml"
+
+[agents.lazycodex-clone-fidelity-reviewer]
+config_file = "./agents/lazycodex-clone-fidelity-reviewer.toml"
+
+[agents.lazycodex-code-reviewer]
+config_file = "./agents/lazycodex-code-reviewer.toml"
+
+[agents.lazycodex-executor]
+config_file = "./agents/lazycodex-executor.toml"
+
+[agents.lazycodex-gate-reviewer]
+config_file = "./agents/lazycodex-gate-reviewer.toml"
+
+[agents.lazycodex-qa-executor]
+config_file = "./agents/lazycodex-qa-executor.toml"
+
+[agents.librarian]
+config_file = "./agents/librarian.toml"
+
+[agents.metis]
+config_file = "./agents/metis.toml"
+
+[agents.momus]
+config_file = "./agents/momus.toml"
+
+[agents.plan]
+config_file = "./agents/plan.toml"
+
+[agents.lazycodex-worker-high]
+config_file = "./agents/lazycodex-worker-high.toml"
+
+[agents.lazycodex-worker-low]
+config_file = "./agents/lazycodex-worker-low.toml"
+
+[agents.lazycodex-worker-medium]
+config_file = "./agents/lazycodex-worker-medium.toml"
+
+[features.multi_agent_v2]
+max_concurrent_threads_per_session = 16
+
+[mcp_servers.paca]
+command = "npx"
+args = ["-y", "@paca-ai/paca-mcp"]
+
+[mcp_servers.paca.env]
+PACA_API_URL = "https://paca.kiosk.id"
